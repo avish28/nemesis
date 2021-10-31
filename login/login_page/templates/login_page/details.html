@@ -1,0 +1,40 @@
+{% extends 'login_page/layout.html' %}
+
+{% block title %}
+details
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+<script>
+$(document).ready(function()
+    {
+     $('#example').DataTable(
+                               { 'ajax':{
+                                        'url':'jsonstock',
+                                        'datatype':'json'},
+                               columns:[
+                                        {'data':'User.username'},
+                                        {'data':'User.email'},
+
+                                        ]
+
+     }                         );
+} );
+
+</script>
+
+{% block body %}
+
+        <table id="example" border="5">
+            <thead>
+                <th>Username</th>
+                <th>Email-id</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+{% endblock %}
